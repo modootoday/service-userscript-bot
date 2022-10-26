@@ -6,8 +6,8 @@
 // @license      Apache-2.0
 // @version      2.0.2
 // @author       https://modoo.today
-// @updateURL    https://bot.datalab.tools/monkey/loader.user.js
-// @downloadURL  https://bot.datalab.tools/monkey/loader.user.js
+// @updateURL    https://modootoday.github.io/service-userscript-bot/loader.user.js
+// @downloadURL  https://modootoday.github.io/service-userscript-bot/loader.user.js
 // @connect      *
 // @match        *://*/*
 // @grant        GM_openInTab
