@@ -4,7 +4,7 @@
 // @description  품앗이봇에 고급 기능을 추가합니다.
 // @copyright    2022, modoo.today
 // @license      Apache-2.0
-// @version      2.0.2
+// @version      2.0.3
 // @author       https://modoo.today
 // @updateURL    https://modootoday.github.io/service-userscript-bot/loader.user.js
 // @downloadURL  https://modootoday.github.io/service-userscript-bot/loader.user.js
@@ -30,7 +30,7 @@
 // @author naverians
 // ==/OpenUserJS==
 (function(window) {
-    (window.__tools_datalab_bot__ = true, GM_addScript(()=>window.__tools_datalab_bot__ = true));
+    (window.__tools_datalab_bot__ = '2.0.3', GM_addScript(()=>window.__tools_datalab_bot__ = '2.0.3'));
     async function scrolls$action() {
         const animateScrollPromise = (selector, options) => {
             const scroll = new SmoothScroll();
