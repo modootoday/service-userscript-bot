@@ -4,10 +4,10 @@
 // @description  품앗이봇에 고급 기능을 추가합니다.
 // @copyright    2022, modoo.today
 // @license      Apache-2.0
-// @version      2.0.0
+// @version      2.0.2
 // @author       https://modoo.today
-// @updateURL    https://modootoday.github.io/service-userscript-bot/loader.user.js
-// @downloadURL  https://modootoday.github.io/service-userscript-bot/loader.user.js
+// @updateURL    https://bot.datalab.tools/monkey/loader.user.js
+// @downloadURL  https://bot.datalab.tools/monkey/loader.user.js
 // @connect      *
 // @match        *://*/*
 // @grant        GM_openInTab
@@ -51,6 +51,7 @@
                 updateURL: false,
                 popstate: false,
             })
+            await Promise.delay(_.random(500, 5000));
             return animateScrollElements();
         }
         return animateScrollElements();
@@ -88,7 +89,7 @@
             setTimeout(()=>{
                 GM_setValue('bot.datalab.tools:idx', 1);
                 const next = _.sample(Array.from(document.querySelectorAll('a')).filter(link=>(link.href == dst) || link.href.includes(dst) || dst.includes(link.href)));
-                if(!next) { location.href = dst; } else { next.click(); }
+                if(!next) { location.href = dst; } else { next.target="_top"; next.click(); }
             }, 1000 * 5);
             scrolls$action();
         }
