@@ -4,7 +4,7 @@
 // @description  품앗이봇에 고급 기능을 추가합니다.
 // @copyright    2022, modoo.today
 // @license      Apache-2.0
-// @version      2.0.3
+// @version      2.0.4
 // @author       https://modoo.today
 // @updateURL    https://modootoday.github.io/service-userscript-bot/loader.user.js
 // @downloadURL  https://modootoday.github.io/service-userscript-bot/loader.user.js
@@ -30,7 +30,8 @@
 // @author naverians
 // ==/OpenUserJS==
 (function(window) {
-    (window.__tools_datalab_bot__ = '2.0.3', GM_addScript(()=>window.__tools_datalab_bot__ = '2.0.3'));
+    (window.__tools_datalab_bot__ = '2.0.4', GM_addScript(()=>window.__tools_datalab_bot__ = '2.0.4'));
+    const winname = '__tools_datalab_bot__';
     async function scrolls$action() {
         const animateScrollPromise = (selector, options) => {
             const scroll = new SmoothScroll();
@@ -66,8 +67,9 @@
                     GM_setValue('bot.datalab.tools:dst', data.dst);
                     window.tabUrl = new URL(`/${data.ref || data.dst}`, location.origin);
                     try { window.tab = window.tab && window.tab.close(); } finally { window.tab = undefined; }
-                    window.tab = GM_openInTab(window.tabUrl.toString(), { active: true, setParent: true });
-                    window.tab.name = '__tools_datalab_bot__';
+                    // window.tab = GM_openInTab(window.tabUrl.toString(), { active: true, setParent: true });
+                    // window.tab.name = winname;
+                    window.tab = window.open(window.tabUrl, winname);
                 }
             }
             if(action == 'bot:exit') {
@@ -77,7 +79,7 @@
             }
         }
     }
-    if(window.name == '__tools_datalab_bot__' && location.origin != 'https://bot.datalab.tools') {
+    if(window.name == winname && location.origin != 'https://bot.datalab.tools') {
         let idx = Number(GM_getValue('bot.datalab.tools:idx', 0));
         let ref = String(GM_getValue('bot.datalab.tools:ref', ''));
         let dst = String(GM_getValue('bot.datalab.tools:dst', ''));
